@@ -1,0 +1,46 @@
+<div class="lead-form-wrapper">
+
+    @if (successMessage) {
+    <div class="info success">{{ successMessage }}</div>
+    }
+
+    @if (errorMessage) {
+    <div class="info error">{{ errorMessage }}</div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="lead-form" id="lead-form-section">
+        <h3>Get Instant Call Back</h3>
+
+        <div class="field">
+            <label for="name">Name *</label>
+            <input id="name" formControlName="name" />
+            @if (form.get('name')?.touched && form.get('name')?.invalid) {
+            <div class="error">Please enter your name</div>
+            }
+        </div>
+
+        <div class="field">
+            <label for="phone">Mobile Number *</label>
+            <input id="phone" formControlName="phone" />
+            @if (form.get('phone')?.touched && form.get('phone')?.invalid) {
+            <div class="error">Enter a valid number</div>
+            }
+        </div>
+
+        <div class="field">
+            <label for="email">Email (optional)</label>
+            <input id="email" formControlName="email" />
+        </div>
+
+        <div class="field">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" rows="2" formControlName="message"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="submitting">
+            {{ submitting ? 'Submitting…' : 'Get Callback' }}
+        </button>
+
+    </form>
+
+</div>

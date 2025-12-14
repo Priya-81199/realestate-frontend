@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+  
+p, span, label {
+    font-weight: 400;
+}

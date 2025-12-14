@@ -1,0 +1,88 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+/* The outer wrapper */
+.lead-form-wrapper {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;        /* center horizontally inside parent */
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 16px;
+    box-sizing: border-box; /* prevent overflow from padding */
+
+    h3 {
+        margin: 0 0 8px;
+        text-align: center;
+    }
+}
+
+/* The actual form */
+.lead-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Fields */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    label {
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    input,
+    textarea {
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        font-size: 0.9rem;
+
+        &:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
+        }
+    }
+
+    .error {
+        font-size: 0.75rem;
+        color: #dc2626;
+    }
+}
+
+/* Submit button */
+.submit-btn {
+    padding: 12px;
+    border-radius: 999px;
+    border: none;
+    background: #16a34a;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Info messages */
+.info {
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+
+    &.success {
+        background: #dcfce7;
+        color: #15803d;
+        border: 1px solid #86efac;
+    }
+
+    &.error {
+        background: #fee2e2;
+        color: #dc2626;
+        border: 1px solid #fca5a5;
+    }
+}

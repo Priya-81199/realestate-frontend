@@ -1,0 +1,183 @@
+@if (loading) {
+<div class="loading">Loading project…</div>
+}
+
+@if (!loading && project) {
+<section class="hero">
+    <div class="hero-bg">
+        <img [src]="project.bannerImage" alt="{{ project.name }} Banner" />
+        <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+        <p class="hero-badge">
+            New Launch in {{ project.location }}
+        </p>
+
+        <h1 class="hero-title">
+            {{ project.name }}
+        </h1>
+
+        <p class="hero-subtitle">
+            {{ project.shortDescription }}
+        </p>
+
+        <div class="hero-meta">
+            <div class="meta-item">
+                <span class="meta-label">Project Location</span>
+                <span class="meta-value">{{ project.location }}</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Starting From</span>
+                <span class="meta-value">On Request</span>
+            </div>
+        </div>
+
+        <button class="hero-cta" (click)="scrollToLeadForm()">
+            Get Instant Call Back
+        </button>
+    </div>
+</section>
+
+<section class="description">
+</section>
+
+@if (project.highlights?.length) {
+<section class="highlights">
+    <h2>Project Highlights</h2>
+
+    <div class="highlights-grid">
+        @for (item of project.highlights; track item.label) {
+        <div class="highlight-card">
+            <div class="highlight-label">{{ item.label }}</div>
+            <div class="highlight-value">{{ item.value }}</div>
+        </div>
+        }
+    </div>
+</section>
+}
+
+@if (project.amenities?.length) {
+<section class="amenities">
+    <h2>Amenities</h2>
+
+    <div class="amenities-grid">
+        @for (item of project.amenities; track item.key) {
+        <div class="amenity-card">
+            <div class="amenity-icon">
+                {{ getAmenityIcon(item.key) }}
+            </div>
+            <div class="amenity-label">
+                {{ item.label }}
+            </div>
+        </div>
+        }
+    </div>
+</section>
+}
+
+@if (project.gallery?.length) {
+<section class="gallery">
+    <h2>Project Gallery</h2>
+
+    <div class="gallery-scroll">
+        @for (img of project.gallery; track img) {
+        <div class="gallery-item">
+            <img [src]="img" alt="Project image" />
+        </div>
+        }
+    </div>
+</section>
+}
+
+@if (project.floorPlans?.length) {
+<section class="floor-plans">
+    <h2>Floor Plans</h2>
+
+    <div class="floor-plans-grid">
+        @for (plan of project.floorPlans; track plan.type) {
+        <div class="floor-plan-image">
+            <img [src]="plan.image" alt="{{ plan.type }} floor plan" />
+            <div class="blur-overlay"></div>
+        </div>
+
+        <div class="floor-plan-info">
+            <div>
+                <div class="plan-type">{{ plan.type }}</div>
+                <div class="plan-area">{{ plan.area }}</div>
+            </div>
+
+            <button class="plan-btn" (click)="scrollToLeadForm()">
+                Get Detailed Plan
+            </button>
+        </div>
+        }
+    </div>
+</section>
+}
+
+@if (project.locationInfo) {
+<section class="location">
+    <h2>Location & Connectivity</h2>
+
+    <p class="project-address">
+        📍 {{ project.locationInfo.address }}
+    </p>
+
+    <div class="location-wrapper">
+        <!-- Map -->
+        <div class="map-container">
+            <iframe [src]="safeMapUrl" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <!-- Landmarks -->
+        @if (project.locationInfo.landmarks?.length) {
+        <div class="landmarks">
+            @for (item of project.locationInfo.landmarks; track item.label) {
+            <div class="landmark-item">
+                <span class="landmark-label">{{ item.label }}</span>
+                <span class="landmark-distance">{{ item.distance }}</span>
+            </div>
+            }
+        </div>
+        }
+    </div>
+</section>
+}
+
+<section class="brochure-cta">
+    <h2>{{ project.brochure?.title || 'Download Brochure' }}</h2>
+    <p>{{ project.brochure?.subtitle || 'Complete project details in one PDF' }}</p>
+
+    <button class="brochure-btn" (click)="scrollToLeadForm()">
+        Download Brochure
+    </button>
+</section>
+
+<section class="lead-section">
+    <app-lead-form [projectSlug]="project.slug" [projectName]="project.name" [utmSource]="utmSource"
+        [utmMedium]="utmMedium" [utmCampaign]="utmCampaign" [gclid]="gclid" [userAgent]="userAgent">
+    </app-lead-form>
+</section>
+
+<div class="sticky-footer">
+    <a class="footer-btn call" href="tel:919022182359">
+        📞 Call Now
+    </a>
+
+    <a class="footer-btn whatsapp" target="_blank"
+        [href]="'https://wa.me/919022182359?text=Hi%2C%20I%20am%20interested%20in%20' + project.name">
+        <svg class="wa-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"
+            fill="currentColor">
+            <path
+                d="M16.002 3.2c-7.04 0-12.8 5.76-12.8 12.8 0 2.304.64 4.544 1.856 6.528l-1.952 7.168 7.36-1.92c1.856.992 3.968 1.504 6.144 1.504 7.04 0 12.8-5.76 12.8-12.8s-5.76-12.8-12.8-12.8zm0 23.04c-1.92 0-3.776-.512-5.408-1.44l-.384-.224-4.352 1.12 1.152-4.224-.256-.416c-1.12-1.792-1.696-3.84-1.696-5.92 0-6.08 4.864-10.944 10.944-10.944 6.08 0 10.944 4.864 10.944 10.944s-4.864 10.944-10.944 10.944zm5.696-8.192c-.32-.16-1.92-.96-2.24-1.088-.32-.128-.544-.16-.768.16-.224.32-.896 1.088-1.088 1.312-.192.224-.384.256-.704.096-.32-.16-1.344-.496-2.56-1.6-.96-.864-1.6-1.92-1.792-2.24-.192-.32-.02-.48.14-.64.14-.14.32-.384.48-.576.16-.192.224-.32.32-.544.096-.224.048-.416-.024-.576-.064-.16-.768-1.856-1.056-2.56-.288-.704-.576-.6-.8-.608l-.672-.012c-.224 0-.576.08-.864.384-.288.32-1.12 1.088-1.12 2.656 0 1.568 1.152 3.072 1.312 3.296.16.224 2.272 3.456 5.504 4.8 3.232 1.344 3.232.896 3.808.832.576-.064 1.92-.768 2.208-1.504.288-.736.288-1.376.224-1.504-.064-.128-.288-.224-.608-.384z" />
+        </svg>
+        <span>WhatsApp</span>
+    </a>
+</div>
+}
+
+@if (!loading && error) {
+<div class="error">{{ error }}</div>
+}

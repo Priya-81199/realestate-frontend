@@ -1,0 +1,100 @@
+{
+    "slug": "godrej-kharghar",
+    "name": "Godrej Kharghar",
+    "location": "Kharghar, Navi Mumbai",
+    "bannerImage": "assets/images/godrej/banner.jpg",
+    "shortDescription": "Premium towers with world-class amenities in Kharghar.",
+    "highlights": [
+        {
+            "label": "RERA No.",
+            "value": "P52000012345"
+        },
+        {
+            "label": "Typology",
+            "value": "2 & 3 BHK Homes"
+        },
+        {
+            "label": "Possession",
+            "value": "Dec 2028"
+        },
+        {
+            "label": "Developer",
+            "value": "Godrej Properties"
+        }
+    ],
+    "amenities": [
+        {
+            "key": "swimming_pool",
+            "label": "Swimming Pool"
+        },
+        {
+            "key": "gym",
+            "label": "Gymnasium"
+        },
+        {
+            "key": "kids_play",
+            "label": "Kids Play Area"
+        },
+        {
+            "key": "garden",
+            "label": "Landscaped Garden"
+        },
+        {
+            "key": "security",
+            "label": "24x7 Security"
+        },
+        {
+            "key": "parking",
+            "label": "Covered Parking"
+        }
+    ],
+    "gallery": [
+        "assets/images/godrej/gallery-1.jpg",
+        "assets/images/godrej/gallery-2.jpg",
+        "assets/images/godrej/gallery-3.jpg",
+        "assets/images/godrej/gallery-4.jpg"
+    ],
+    "floorPlans": [
+        {
+            "type": "2 BHK",
+            "area": "680 – 720 sq.ft",
+            "image": "assets/images/sample-floorplans/2bhk.jpg"
+        },
+        {
+            "type": "3 BHK",
+            "area": "980 – 1050 sq.ft",
+            "image": "assets/images/sample-floorplans/3bhk.jpg"
+        }
+    ],
+    "locationInfo": {
+        "address": "Sector 35G, Kharghar, Navi Mumbai",
+        "mapEmbedUrl": "https://www.google.com/maps?q=Kharghar%20Sector%2035G&output=embed",
+        "landmarks": [
+            {
+                "label": "Kharghar Railway Station",
+                "distance": "2.5 km"
+            },
+            {
+                "label": "Central Park",
+                "distance": "1.8 km"
+            },
+            {
+                "label": "NMIMS University",
+                "distance": "3 km"
+            },
+            {
+                "label": "Upcoming Metro Station",
+                "distance": "1 km"
+            }
+        ]
+    },
+    "brochure": {
+        "title": "Download Project Brochure",
+        "subtitle": "Get floor plans, pricing & payment plans"
+    },
+    "seo": {
+        "title": "Godrej Kharghar New Launch | 2 & 3 BHK in Navi Mumbai",
+        "description": "Godrej Kharghar new launch offers premium 2 & 3 BHK homes with world-class amenities in Navi Mumbai. Enquire for price & brochure.",
+        "image": "assets/images/godrej/banner.jpg"
+    }
+}

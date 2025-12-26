@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LeadPayload } from '../models/lead-payload';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class LeadService {
-  // later we can move this to environment.ts
-  private readonly baseUrl = 'http://localhost:8080/api/leads';
+
+  private readonly baseUrl = `${environment.apiBaseUrl}/api/leads`;
 
   constructor(private http: HttpClient) {}
 
